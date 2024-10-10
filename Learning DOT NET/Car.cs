@@ -14,7 +14,7 @@ namespace Learning_DOT_NET
         public int Noofseats { get; set; }
         public string color { get; set; }
         public int weight { get; set; }
-         public int weight2 { get; set; }
+        public int weight2 { get; set; }
         // methods
 
         // access modifier | return type | method name | method parameters
@@ -22,12 +22,12 @@ namespace Learning_DOT_NET
         public void Accelerator(int pressure)
         {
             int speed = pressure * 10;
-            Console.WriteLine("the speed is "+speed);
+            Console.WriteLine("the speed is " + speed);
         }
         public void brake(int pressure)
         {
             int speed = pressure / 10;
-            Console.WriteLine("speed of car is "+speed);
+            Console.WriteLine("speed of car is " + speed);
         }
     }
 }
