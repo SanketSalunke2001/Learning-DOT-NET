@@ -14,7 +14,7 @@ namespace Learning_DOT_NET
         public int Noofseats { get; set; }
         public string color { get; set; }
         public int weight { get; set; }
-
+         public int weight { get; set; }
         // methods
 
         // access modifier | return type | method name | method parameters
