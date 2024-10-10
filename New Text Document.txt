@@ -1,0 +1,508 @@
+program.cs
+
+
+/*---------------------------------Class 1--------------------------------------*/
+
+
+//Console.WriteLine("Hello, World!");  // black screen is known as console which was running in operating system
+//Console.WriteLine("welcome");        // writeline means likh ke line chod do
+//Console.WriteLine("first class");
+//Console.WriteLine("introduction");
+//Console.WriteLine("This paragraph is going to be in a same line");
+
+
+
+/*--------------- First Program---------------*/
+
+
+//int firstno = 200;
+//int secondno = 400;
+//int result= firstno + secondno;
+//Console.WriteLine("result is " + result );            
+//Console.ReadLine();          
+
+
+/*-------------Get input from the user and show the result-------------*/
+
+
+//Console.WriteLine("Please enter your first number:");
+//int first = Convert.ToInt32(Console.ReadLine());       // (readline) returns the string
+//Console.WriteLine("Please enter your second number:");
+//int second = Convert.ToInt32(Console.ReadLine());
+//int result=first+second;
+//Console.WriteLine("the result of two numbers is " + result);
+//Console.ReadLine();
+
+/*///////////////////if condition ////////////////////////*/
+
+
+//Console.WriteLine("enter first no:");
+//int a = Convert.ToInt32(Console.ReadLine());
+//Console.WriteLine("enter second no:");
+//int b = Convert.ToInt32(Console.ReadLine());
+//if (a > b)
+//{
+//    Console.WriteLine(a + " is greater");
+//}
+//else
+//{
+//    Console.WriteLine(b + " is greater");
+//}
+//Console.ReadLine();
+
+
+
+
+
+
+/*-----------------------------------Class 2 -> CLR ,MSIL and Data Types in .Net ------------------------*/
+
+
+// CLR (common language runtime) -> It is a translator between Visual Studio and Operating system .
+//                               -> Runtime Environment Creation.
+//                               -> Garbage Collection.   
+
+/*---------------------------------------------------------------------------------------*/
+
+/* Data Types*/
+
+//int varint = 10;          // where int is datatype and varint is variable 
+//string varString = "sanket";
+//bool varbool = true;   // either true or false
+//DateTime varDateTime = DateTime.Now;
+//float varFloat = 3.14f;
+//Console.WriteLine(varint);
+//Console.WriteLine(varString);
+//Console.WriteLine(varbool);
+//Console.WriteLine(varDateTime);
+//Console.WriteLine(varFloat);
+
+
+/*------------------------------------CLass 3 -> Classes and Objects in C#-----------------------------------*/
+
+// OOPS  :- Object Oriented Programming ( C# )
+
+/* 4 main concepts
+ 
+    -> Encapsulation :- Its a grouping or wrapping of data member or data function.Example of encapsulation in C# is Class.
+    -> Abstraction
+    -> Polymorphism :- poly =many,morph=form
+					  Dotnet mai kehte hai -> method overloading
+    -> Inheritance
+
+   class
+{
+    methods
+    properies
+    variables
+}
+    object :-  everything present in this universe which aquires space.
+    
+    Examples :-
+
+1) Properties | Car
+    - colour
+    - brand name
+    - type
+    - no. of steats
+
+2) Behaviour(functionality)
+    - accelerator | to increase speed
+    - brake
+    - clutch
+*/
+
+
+// creating object
+
+using Learning_DOT_NET;
+
+//Car objCar;    //car class variable
+//objCar=new Car();   // objCar is now object
+
+Car objCar = new Car();
+objCar.Name = "honda city";
+objCar.Noofseats = 4;
+objCar.Brand = "honda";
+objCar.color = "black";
+
+objCar.Accelerator(10);
+objCar.brake(100);
+
+
+Car objCar2 = new Car();
+objCar2.Name = "i10";
+objCar2.Noofseats = 6;
+objCar2.Brand = "hyundai";
+objCar2.color = "red";
+
+objCar2.Accelerator(20);
+objCar2.brake(100);
+
+
+Car objCar3 = new Car();
+
+objCar3 = objCar;              // data members and member function of objCar3 becomes same as objCar
+//objCar=null;          // yeh kisi ko represent nahi karega
+
+
+Console.WriteLine("---------------------------------------------------------------");
+Console.WriteLine(objCar3.Noofseats); //4
+Console.WriteLine(objCar.Noofseats); // no value  // jab tak heap se value delete nahi karoge yaha pe value dikhti rahegi                     
+
+
+Console.ReadLine();
+
+
+// creating class
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Learning_DOT_NET
+{
+    public class Car
+    {
+        //properties;
+        public string Brand { get; set; }
+        public string Name { get; set; }
+        public int Noofseats { get; set; }
+        public string color { get; set; }
+
+        // methods
+
+        // access modifier | return type | method name | method parameters
+
+        public void Accelerator(int pressure)
+        {
+            int speed = pressure * 10;
+            Console.WriteLine("the speed is "+speed);
+        }
+        public void brake(int pressure)
+        {
+            int speed = pressure / 10;
+            Console.WriteLine("speed of car is "+speed);
+        }
+    }
+}
+
+
+/*---------------------------------Class 4---------------------------------------*/
+
+Methods
+
+syntax 
+
+Access Modifier |  return type | method name(programmer choice) | (method parameters)
+
+public int sum(int a ,int b) 
+{
+
+}
+
+method duplicate allow.
+
+1) type of parameter different
+or
+2) no. of parameter different
+
+
+
+// Constructor :  It is special method used to define default values of the variable.
+
+- Constructor name always be same as class name
+- Constructor does not have any return type.
+- You cannot call constructor by yourself but whenever new object gets created constructor get called automatically. 
+
+/*copy constructor*/
+
+// ConstructorExample objConst2 = new ConstructorExample(objExample);
+
+ public ConstructorExample(ConstructorExample obj)
+ {
+     this.varInt= obj.varInt;
+     this.varString = obj.varString;
+ }
+
+
+/*---------------------------------Class 5 static constructor---------------------------------------*/
+
+
+ public class StaticExample  // for giving lifetime memory we use static
+{
+    public int varint;                   // normal variable
+    public static int StaticVarInt;    // it does not defined with object and only accessible to static members
+
+     static ConstructorExample() // parameter is also not possible just like default constructor at first time while creation of first object only
+   {
+       StaticVarInt = 100;        // it can access because it is an static variable
+   }
+}
+
+
+In main() program
+
+
+/*   how to call static constructor  */
+ConstructorExample objce1 = new ConstructorExample();   // this will static constructor and we can pass value in here
+ConstructorExample objce2 = new ConstructorExample();  // this will not be static constructor
+
+if 
+
+ConstructorExample.StaticVarInt=120;
+ConstructorExample objce1 = new ConstructorExample();   // now here static value should not be passed because it was initially takes place
+ConstructorExample objce2 = new ConstructorExample()
+Console.ReadLine();
+
+
+/*---------------------------------Class 6 Properties and inheritance in C#---------------------------------------*/
+
+
+Properties : To define deatures of an object
+
+==============================Inheritance===========================
+
+in main()
+
+Parent objparent = new Parent();  // it cannot access child
+objparent.Parentmethod();
+
+Child objchid = new Child();  // it can access both child itself and parent also
+objchid.Parentmethod();
+objchid.Childmethod();
+Console.ReadLine();
+
+
+In class 
+
+namespace Learning_DOT_NET
+{
+
+
+    public class Parent    // but yeh class ka object child class ko access nahi kr sakta
+    {
+
+        public Parent()   //1
+        {
+            Console.WriteLine("i am parent class constructor");
+        }
+        static Parent()   //2
+        {
+            Console.WriteLine("i am static parent class constructor");
+        }
+        public void Parentmethod()
+        {
+            Console.WriteLine("i an parent methof");
+        }
+    }
+
+    public class Child : Parent // humane iss class ko bataya ki tumara parent yeh hai yani Parent Class
+    {
+        public Child()  //3
+        {
+            Console.WriteLine("i am child class constructor");
+        }
+        static Child()  //4
+        {
+            Console.WriteLine("i am static child class constructor");
+        }
+        public void Childmethod()     // is class ka object iss class ko and parent class ko access kr sakta hai
+        {
+            Console.WriteLine("i am child method");
+        }
+    }
+}
+
+
+/---------------------------class 7 Inheritance and its types-------------------------------/
+
+
+Types of inheritance
+
+1.Single level inheritance. // parent and child
+2.multi level inheritance.(2 or more class involved)  // parent,child and grandchild
+3.Heirarical inheritance.
+4.multiple inheritance. // dotnet does not support this inheritance because of diamond problem
+
+
+
+// Method overriding :- It is a concept of changing parent method functionality in a child class.
+
+1. Parent method must have virtual / override keyword.  
+2.In the child class you must use override keyword to change the functionality.  
+
+
+polymorphism 
+
+static polymosphism | method overloading 
+dynamic polymorphism or runtime polymorphism | method overloading
+
+
+
+
+
+===========================Method Hiding=====================================
+
+
+
+
+
+
+
+/---------------------------Class 8 Interface in c#-------------------------------/
+
+Abstraction : to show only that is necessary and hide the details of implementation.
+
+Interface and Abstract Class.
+
+Interface :
+
+1)- Interface does not contain method body it only contains method definition . After .net 6 we can even provide 
+	 body to interface as well.
+2)-  Interface method does not need to provide access modifiers.They are by default public.	
+
+3) - you must implement all the methods in the child class when you use interface.
+
+4) - Interface supports multiple inheritance.
+
+5) - you can inherit a class aling with other interface in a child class.but that class must be first member in inheritance.
+
+6) -If 2 or more interface has some method name with same parameters then we do not need to give method body separately.
+
+7) - we cannot create object of interface.we must use child class to call interface methods.
+
+8)- Interface specific implementation -> you can create method in child class specific to an interface by putting interface name infront of it.
+
+
+
+/*------------------------------ Class 9 -  Collection in C# ------------------------------------*/
+
+Collection :- 
+
+
+// int[] varl=new int[]{10,20,30,40,50};  or //  int[] array=new int[10];
+
+Ex:-
+
+int[] arrayint =new int[10];
+arrayint[1]=10;         // ab yaha pe use to 2 space ho rhe hai lekin wo space bana 10 space banaiga
+arrayint[2]=20;
+
+
+i. Dynamic increase of the memory.
+ii. to input all the different kind of datatype in it so, for that we need collection.
+
+1) ArrayList
+
+//////////// Boxing vs Unboxing//////////////
+
+#Boxing :- Conversion of value type to reference type is called boxing.
+		    boxing is handled automatically in ArrayList or collection.
+
+#Unboxing :-  Its an opposite of boxing.Conversion of value type from reference type is called unboxing.
+					we have to perform unboxing by ourselves.
+
+
+C-> create
+R-> read
+U-> update
+D-> delete
+
+
+
+1) HashTable=index,value  // to access elements faster
+
+
+
+
+
+
+/*------------------------------ Class 10 - Generic Collection in C# ------------------------------------*/
+
+ismai hame unboxing krne ki jarurat na pade so for that we are using Generic collection
+
+
+
+
+/*------------------------------ Class 11 - Exception Handling in C# ------------------------------------*/
+
+
+With the help of try and catch.
+
+ public void TestMethod()
+ {
+     // Exception
+     try
+     {
+         int i = 100;
+         int j = 0;
+         int result = i / j;
+         Console.WriteLine(result);
+     }
+     catch (Exception ex) // ex exception ko catch krta hai ya yaha catch ho jati hai exception
+     {
+         Console.WriteLine("An exception occured in application please contact system administrator"+ex.Message);
+     }
+ }
+
+steps in code building
+
+-local environment
+-dev environment
+-Test environment(software tester)
+-UAT environment(business user testing)
+-Staging environment(Pre Prod environment)
+-production environment.
+
+
+Q) Can we use try only without catch or finally ?
+
+Ans- No
+
+
+
+/*------------------------------ Class 12 - SQL server intro ------------------------------------*/
+
+
+Database
+
+SQL server - Microsoft relational database.
+
+-server means space where information is saved
+
+-> relational means multiple table are related to each other.
+
+-> SQL = Structured query language
+
+=> tables 
+
+
+
+
+/*------------------------------ Class 16 - MVC intro ------------------------------------*/
+
+MVC - Model View Controller and it is one of the framework to design and develop web application.
+
+m:-
+v
+C
+
+
+Steps:-
+
+1) create model with structure of employee.
+
+
+
+
+
+
+
+
+
+
+
+
