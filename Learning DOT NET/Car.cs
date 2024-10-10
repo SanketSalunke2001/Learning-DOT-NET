@@ -13,6 +13,7 @@ namespace Learning_DOT_NET
         public string Name { get; set; }
         public int Noofseats { get; set; }
         public string color { get; set; }
+        public int weight { get; set; }
 
         // methods
 
