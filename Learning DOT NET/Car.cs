@@ -22,12 +22,12 @@ namespace Learning_DOT_NET
         public void Accelerator(int pressure)
         {
             int speed = pressure * 10;
-            Console.WriteLine("the speed is " + speed);
+            Console.WriteLine("the speed is "+speed);
         }
         public void brake(int pressure)
         {
             int speed = pressure / 10;
-            Console.WriteLine("speed of car is " + speed);
+            Console.WriteLine("speed of car is "+speed);
         }
     }
 }
